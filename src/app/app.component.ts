@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title = 'jp-app';
+  constructor(private actRoute: ActivatedRoute) { }
+   title = 'JP-app'
+  ngOnInit(): void {
+    this.title = this.actRoute.snapshot.params.title;
+  }
 }
